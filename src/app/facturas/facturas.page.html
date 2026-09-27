@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Facturas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Lista de Facturas</h1>
+
+  @if (error) {
+    <p>{{ error }}</p>
+  }
+
+  @if (facturas.length === 0 && !error) {
+    <p>Cargando facturas...</p>
+  }
+
+  @for (factura of facturas; track factura.id) {
+
+    <div
+      style="
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid #444;
+      "
+    >
+
+      <h2>
+        Factura {{ factura.numero_factura }}
+      </h2>
+
+      <p>ID: {{ factura.id }}</p>
+
+      <p>Fecha: {{ factura.fecha }}</p>
+
+      <p>Cliente ID: {{ factura.cliente_id }}</p>
+
+      <p>Usuario ID: {{ factura.usuario_id }}</p>
+
+      <p>IVA: {{ factura.iva }}%</p>
+
+      <p>Total: {{ factura.total }}</p>
+
+      <p>Estado: {{ factura.estado }}</p>
+
+    </div>
+
+  }
+
+  <div
+    style="
+      margin-top: 20px;
+      text-align: center;
+    "
+  >
+
+    <button
+      (click)="paginaAnterior()"
+      [disabled]="pagina === 1"
+    >
+      Anterior
+    </button>
+
+    <span style="margin: 0 20px;">
+      Página {{ pagina }} de {{ totalPaginas }}
+    </span>
+
+    <button
+      (click)="siguientePagina()"
+      [disabled]="pagina === totalPaginas"
+    >
+      Siguiente
+    </button>
+
+  </div>
+
+</ion-content>

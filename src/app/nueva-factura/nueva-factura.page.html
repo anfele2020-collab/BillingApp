@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva Factura</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Crear Factura</h1>
+
+  @if (mensaje) {
+    <p style="color: green;">
+      {{ mensaje }}
+    </p>
+  }
+
+  @if (error) {
+    <p style="color: red;">
+      {{ error }}
+    </p>
+  }
+
+  <div style="margin-bottom: 15px;">
+    <label>Número de factura</label>
+
+    <input
+      type="text"
+      name="numero_factura"
+      [(ngModel)]="factura.numero_factura"
+      placeholder="FAC-00014"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>Fecha</label>
+
+    <input
+      type="date"
+      name="fecha"
+      [(ngModel)]="factura.fecha"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>ID del cliente</label>
+
+    <input
+      type="number"
+      name="cliente_id"
+      [(ngModel)]="factura.cliente_id"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>ID del usuario</label>
+
+    <input
+      type="number"
+      name="usuario_id"
+      [(ngModel)]="factura.usuario_id"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>IVA (%)</label>
+
+    <input
+      type="number"
+      name="iva"
+      [(ngModel)]="factura.iva"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <button
+    type="button"
+    (click)="crearFactura()"
+    style="
+      padding: 12px 20px;
+      cursor: pointer;
+    "
+  >
+    Crear Factura
+  </button>
+
+</ion-content>

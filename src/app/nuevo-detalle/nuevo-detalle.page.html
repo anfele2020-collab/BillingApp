@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Agregar producto a la factura</h1>
+
+  @if (mensaje) {
+    <p style="color: green;">
+      {{ mensaje }}
+    </p>
+  }
+
+  @if (error) {
+    <p style="color: red;">
+      {{ error }}
+    </p>
+  }
+
+  <div style="margin-bottom: 15px;">
+    <label>ID de la factura</label>
+
+    <input
+      type="number"
+      name="factura_id"
+      [(ngModel)]="detalle.factura_id"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>ID del producto</label>
+
+    <input
+      type="number"
+      name="producto_id"
+      [(ngModel)]="detalle.producto_id"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>Cantidad</label>
+
+    <input
+      type="number"
+      name="cantidad"
+      [(ngModel)]="detalle.cantidad"
+      min="1"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label>Precio unitario</label>
+
+    <input
+      type="number"
+      name="precio_unitario"
+      [(ngModel)]="detalle.precio_unitario"
+      min="1"
+      style="width: 100%; padding: 10px;"
+    >
+  </div>
+
+  <button
+    type="button"
+    (click)="crearDetalle()"
+  >
+    Agregar detalle
+  </button>
+
+</ion-content>

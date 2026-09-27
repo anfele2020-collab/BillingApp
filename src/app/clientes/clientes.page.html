@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Lista de Clientes</h1>
+
+  @if (error) {
+    <p>{{ error }}</p>
+  }
+
+  <ion-list>
+
+    @for (cliente of clientes; track cliente.id) {
+
+      <ion-item>
+
+        <ion-label>
+
+          <h2>{{ cliente.nombre }}</h2>
+
+          <p>ID: {{ cliente.id }}</p>
+
+          <p>Documento: {{ cliente.documento }}</p>
+
+          <p>Dirección: {{ cliente.direccion }}</p>
+
+          <p>Teléfono: {{ cliente.telefono }}</p>
+
+          <p>Email: {{ cliente.email }}</p>
+
+        </ion-label>
+
+      </ion-item>
+
+    }
+
+  </ion-list>
+
+</ion-content>

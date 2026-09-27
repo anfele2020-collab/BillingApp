@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Lista de Usuarios</h1>
+
+  @if (error) {
+    <p>{{ error }}</p>
+  }
+
+  @for (usuario of usuarios; track usuario.id) {
+
+    <div style="padding: 15px; margin-bottom: 10px; border: 1px solid #444;">
+
+      <h2>{{ usuario.nombre }}</h2>
+
+      <p>ID: {{ usuario.id }}</p>
+
+      <p>Documento: {{ usuario.documento }}</p>
+
+      <p>Dirección: {{ usuario.direccion }}</p>
+
+      <p>Teléfono: {{ usuario.telefono }}</p>
+
+      <p>Email: {{ usuario.email }}</p>
+
+      <p>Rol: {{ usuario.rol }}</p>
+
+    </div>
+
+  }
+
+  <div style="margin-top: 20px; text-align: center;">
+
+    <button
+      (click)="paginaAnterior()"
+      [disabled]="pagina === 1">
+      Anterior
+    </button>
+
+    <span style="margin: 0 20px;">
+      Página {{ pagina }} de {{ totalPaginas }}
+    </span>
+
+    <button
+      (click)="siguientePagina()"
+      [disabled]="pagina === totalPaginas">
+      Siguiente
+    </button>
+
+  </div>
+
+</ion-content>

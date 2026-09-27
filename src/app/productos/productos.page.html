@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Lista de Productos</h1>
+
+  @if (error) {
+    <p>{{ error }}</p>
+  }
+
+  @for (producto of productos; track producto.id) {
+
+    <div style="padding: 15px; margin-bottom: 10px; border: 1px solid #444;">
+
+      <h2>{{ producto.nombre }}</h2>
+
+      <p>ID: {{ producto.id }}</p>
+
+      <p>Código: {{ producto.codigo }}</p>
+
+      <p>Descripción: {{ producto.descripcion }}</p>
+
+      <p>Precio: {{ producto.precio }}</p>
+
+      <p>Stock: {{ producto.stock }}</p>
+
+    </div>
+
+  }
+
+  <div style="margin-top: 20px; text-align: center;">
+
+    <button
+      (click)="paginaAnterior()"
+      [disabled]="pagina === 1">
+      Anterior
+    </button>
+
+    <span style="margin: 0 20px;">
+      Página {{ pagina }} de {{ totalPaginas }}
+    </span>
+
+    <button
+      (click)="siguientePagina()"
+      [disabled]="pagina === totalPaginas">
+      Siguiente
+    </button>
+
+  </div>
+
+</ion-content>
